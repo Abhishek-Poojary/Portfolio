@@ -1,15 +1,9 @@
 import { useMemo } from "react"
-import { getAllProjects, getFeaturedProjects, getProjectById } from "@/lib/services/projects"
+import { getAllProjects, getFeaturedProjects } from "@/lib/services/projects"
 
-export const useProjects = () => {
-  const all = useMemo(() => getAllProjects(), [])
-  const featured = useMemo(() => getFeaturedProjects(), [])
+export function useProjects() {
+  const allProjects = useMemo(() => getAllProjects(), [])
+  const featuredProjects = useMemo(() => getFeaturedProjects(), [])
 
-  return { all, featured }
-}
-
-export const useProjectById = (id: number | string) => {
-  const project = useMemo(() => getProjectById(Number(id)), [id])
-
-  return project
+  return { allProjects, featuredProjects }
 }

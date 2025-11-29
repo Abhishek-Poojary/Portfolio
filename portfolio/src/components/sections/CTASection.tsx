@@ -1,21 +1,25 @@
-
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { Link } from "react-router-dom"
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/5 to-background">
-      <div className="max-w-4xl mx-auto text-center space-y-6">
-        <h2 className="text-3xl md:text-5xl font-bold text-balance">Let's work together</h2>
-        <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-          Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-t border-border bg-card">
+      <div className="max-w-3xl mx-auto text-center space-y-6">
+        <h2 className="text-3xl md:text-4xl font-bold">Let's Create Something Amazing</h2>
+        <p className="text-lg text-foreground/70">
+          Have a project idea? Let's collaborate and build something incredible together.
         </p>
-        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2" asChild>
-          <Link to="/contact">
-            Get in Touch <ArrowRight className="w-4 h-4" />
-          </Link>
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2" asChild>
+            <Link to="/contact">
+              Get In Touch <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild className="bg-transparent">
+            <Link to="/projects">View Projects</Link>
+          </Button>
+        </div>
       </div>
     </section>
   )

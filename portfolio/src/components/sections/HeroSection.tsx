@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react"
 import { SITE_CONFIG } from "@/constants/config"
-import { Link } from "react-router-dom"
 
-// interface HeroSectionProps {
-//   scrollY?: number
-// }
+interface HeroSectionProps {
+  scrollY?: number
+}
 
-export function HeroSection() {
+export function HeroSection({ scrollY = 0 }: HeroSectionProps) {
   return (
     <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 -z-10 opacity-30">

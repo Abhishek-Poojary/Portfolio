@@ -1,11 +1,12 @@
-export const formatYear = (year: string): string => {
-  return year
+export function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date)
 }
 
-export const truncateText = (text: string, maxLength: number): string => {
-  return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text
-}
-
-export const formatTechStack = (techs: string[]): string => {
-  return techs.join(" • ")
+export function truncateText(text: string, length: number): string {
+  if (text.length <= length) return text
+  return text.slice(0, length) + "..."
 }

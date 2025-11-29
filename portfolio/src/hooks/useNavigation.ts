@@ -1,15 +1,7 @@
-import { useState, useCallback } from "react"
+import { useState } from "react"
 
-export const useNavigation = () => {
+export function useNavigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const closeMobileMenu = useCallback(() => {
-    setMobileMenuOpen(false)
-  }, [])
-
-  const toggleMobileMenu = useCallback(() => {
-    setMobileMenuOpen((prev) => !prev)
-  }, [])
-
-  return { mobileMenuOpen, setMobileMenuOpen, closeMobileMenu, toggleMobileMenu }
+  return { mobileMenuOpen, setMobileMenuOpen }
 }

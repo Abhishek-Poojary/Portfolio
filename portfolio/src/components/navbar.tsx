@@ -1,12 +1,13 @@
+import { Link, useLocation } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Github, Linkedin } from "lucide-react"
-import { useNavigation } from "@/hooks/useNavigation"
+import { useState } from "react"
 import { NAV_ITEMS, SITE_CONFIG } from "@/constants/config"
-import { Link } from "react-router-dom"
 
 export function Navbar() {
-  const { mobileMenuOpen, setMobileMenuOpen } = useNavigation()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
@@ -16,20 +17,22 @@ export function Navbar() {
             {SITE_CONFIG.name}
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-foreground/80 hover:text-foreground transition-colors"
+                className={`transition-colors ${
+                  location.pathname === item.href
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80 hover:text-foreground"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* Desktop Social Links */}
           <div className="hidden md:flex gap-4">
             <Button variant="ghost" size="icon" asChild>
               <a href={SITE_CONFIG.social.github} target="_blank" rel="noopener noreferrer">
@@ -43,7 +46,6 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Navigation */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
@@ -56,7 +58,11 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="text-lg text-foreground/80 hover:text-foreground transition-colors"
+                    className={`text-lg transition-colors ${
+                      location.pathname === item.href
+                        ? "text-primary font-semibold"
+                        : "text-foreground/80 hover:text-foreground"
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}

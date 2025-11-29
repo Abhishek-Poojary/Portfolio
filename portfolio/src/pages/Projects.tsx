@@ -1,14 +1,16 @@
+"use client"
+
 import { useState } from "react"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { ProjectCard } from "@/components/project-card"
+import { Navbar } from "@/components/Navbar"
+import { Footer } from "@/components/Footer"
+import { ProjectCard } from "@/components/ProjectCard"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { getAllProjects } from "@/lib/services/projects"
 import { ExternalLink, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function ProjectsPage() {
+export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<ReturnType<typeof getAllProjects>[0] | null>(null)
   const projects = getAllProjects()
 
@@ -16,7 +18,6 @@ export default function ProjectsPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-background">
-        {/* Header */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-border">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
@@ -26,7 +27,6 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* Projects Grid */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,7 +39,6 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* Project Modal */}
         <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
           <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
             {selectedProject && (
@@ -52,7 +51,6 @@ export default function ProjectsPage() {
                 </DialogHeader>
 
                 <div className="space-y-6 mt-4">
-                  {/* Project Image */}
                   <div className="relative h-48 rounded-lg overflow-hidden bg-muted">
                     <img
                       src={selectedProject.image || "/placeholder.svg"}
@@ -61,7 +59,6 @@ export default function ProjectsPage() {
                     />
                   </div>
 
-                  {/* Technologies */}
                   <div>
                     <h3 className="font-semibold mb-3 text-foreground">Technologies</h3>
                     <div className="flex flex-wrap gap-2">
@@ -73,19 +70,16 @@ export default function ProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Problem */}
                   <div>
                     <h3 className="font-semibold mb-2 text-foreground">The Problem</h3>
                     <p className="text-foreground/70">{selectedProject.problem}</p>
                   </div>
 
-                  {/* Solution */}
                   <div>
                     <h3 className="font-semibold mb-2 text-foreground">The Solution</h3>
                     <p className="text-foreground/70">{selectedProject.solution}</p>
                   </div>
 
-                  {/* Challenges */}
                   <div>
                     <h3 className="font-semibold mb-3 text-foreground">Key Challenges Solved</h3>
                     <ul className="space-y-2">
@@ -98,7 +92,6 @@ export default function ProjectsPage() {
                     </ul>
                   </div>
 
-                  {/* Future Improvements */}
                   <div>
                     <h3 className="font-semibold mb-3 text-foreground">Future Improvements</h3>
                     <ul className="space-y-2">
@@ -111,7 +104,6 @@ export default function ProjectsPage() {
                     </ul>
                   </div>
 
-                  {/* Links */}
                   <div className="flex gap-3 pt-4 border-t border-border">
                     <Button className="flex-1 gap-2" asChild>
                       <a href={selectedProject.links.live} target="_blank" rel="noopener noreferrer">

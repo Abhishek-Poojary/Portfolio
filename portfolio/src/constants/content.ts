@@ -1,4 +1,4 @@
-import type { Project, SkillCategory, TimelineEntry } from "@/types/index"
+import type { Project, SkillCategory, TimelineEntry } from "@/types"
 
 export const PROJECTS: Project[] = [
   {

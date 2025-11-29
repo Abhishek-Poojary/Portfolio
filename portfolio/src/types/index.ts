@@ -1,16 +1,14 @@
-export interface ProjectLink {
-  live: string
-  github: string
-  case: string
-}
-
 export interface Project {
   id: number
   title: string
   description: string
   image: string
   technologies: string[]
-  links: ProjectLink
+  links: {
+    live: string
+    github: string
+    case: string
+  }
   problem: string
   solution: string
   challenges: string[]
@@ -27,10 +25,4 @@ export interface TimelineEntry {
   title: string
   company: string
   description: string
-}
-
-export interface SocialLink {
-  icon: string
-  url: string
-  label: string
 }
