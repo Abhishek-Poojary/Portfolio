@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
-import { HeroSection } from "@/components/sections/HeroSection"
-import { SkillsSection } from "@/components/sections/SkillsSection"
-import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection"
-import { CTASection } from "@/components/sections/CTASection"
+import { HeroSection } from "@/components/sections/hero-section"
+import { SkillsSection } from "@/components/sections/skills-section"
+import { FeaturedProjectsSection } from "@/components/sections/featured-projects-section"
+import { CTASection } from "@/components/sections/cta-section"
+import { StatsSection } from "@/components/sections/stats-section"
+import { SkillsVisualizationSection } from "@/components/sections/skills-visualization-section"
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
@@ -22,6 +24,8 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen bg-background">
         <HeroSection scrollY={scrollY} />
+        <StatsSection />
+        <SkillsVisualizationSection />
         <SkillsSection />
         <FeaturedProjectsSection />
         <CTASection />

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ProjectCard } from "@/components/ProjectCard"
+import { ProjectCard } from "@/components/project-card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { getFeaturedProjects } from "@/lib/services/projects"

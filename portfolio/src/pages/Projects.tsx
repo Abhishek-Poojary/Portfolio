@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
-import { ProjectCard } from "@/components/ProjectCard"
+import { ProjectCard } from "@/components/project-card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { getAllProjects } from "@/lib/services/projects"
