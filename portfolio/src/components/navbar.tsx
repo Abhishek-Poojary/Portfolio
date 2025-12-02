@@ -10,10 +10,10 @@ export function Navbar() {
   const location = useLocation()
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 glass">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-xl font-bold text-primary">
+          <Link to="/" className="text-xl font-bold gradient-text">
             {SITE_CONFIG.name}
           </Link>
 
@@ -22,24 +22,35 @@ export function Navbar() {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`transition-colors ${
+                className={`text-sm transition-all duration-300 relative group ${
                   location.pathname === item.href
                     ? "text-primary font-semibold"
-                    : "text-foreground/80 hover:text-foreground"
+                    : "text-foreground/70 hover:text-foreground"
                 }`}
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
-          <div className="hidden md:flex gap-4">
-            <Button variant="ghost" size="icon" asChild>
+          <div className="hidden md:flex gap-3">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-primary/20 hover:text-primary transition-all"
+              asChild
+            >
               <a href={SITE_CONFIG.social.github} target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5" />
               </a>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-primary/20 hover:text-primary transition-all"
+              asChild
+            >
               <a href={SITE_CONFIG.social.linkedin} target="_blank" rel="noopener noreferrer">
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -52,7 +63,7 @@ export function Navbar() {
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-card">
+            <SheetContent side="right" className="glass-dark border-l">
               <div className="flex flex-col gap-6 mt-8">
                 {NAV_ITEMS.map((item) => (
                   <Link
