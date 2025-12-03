@@ -1,8 +1,8 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { SITE_CONFIG } from "@/constants/config"

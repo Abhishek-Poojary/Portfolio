@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { ProjectCard } from "@/components/project-card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"

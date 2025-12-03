@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/hero-section"
 import { SkillsSection } from "@/components/sections/skills-section"
 import { FeaturedProjectsSection } from "@/components/sections/featured-projects-section"

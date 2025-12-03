@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { getAllProjects } from "@/lib/services/projects"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
